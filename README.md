@@ -5,7 +5,7 @@ Welcome to the Object Detection Project! This project combines the capabilities 
 ## Overview
 The Object Detection Project employs advanced deep learning techniques to identify safety gears in images, facilitating applications such as workplace safety monitoring. Beyond model building, this project focuses on implementing end-to-end MLOps pipelines to streamline model development, deployment, and maintenance.
 
-## Project Structure
+## Project Structur
 
 The project is structured into several components, each fulfilling a specific MLOps function:
 
