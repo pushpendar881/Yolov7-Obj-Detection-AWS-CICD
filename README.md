@@ -3,7 +3,6 @@
 Welcome to the Object Detection Project! This project combines the capabilities of Deep Learning with MLOps (Machine Learning Operations) to automate the process of detecting safety gears like glasses, helmet, jacket, boots, etc. By integrating MLOps practices, we ensure efficient model development, deployment, and monitoring, resulting in a reliable and scalable solution.
 
 ## Overview
-
 The Object Detection Project employs advanced deep learning techniques to identify safety gears in images, facilitating applications such as workplace safety monitoring. Beyond model building, this project focuses on implementing end-to-end MLOps pipelines to streamline model development, deployment, and maintenance.
 
 ## Project Structure
