@@ -1,0 +1,11 @@
+# Ignore everything
+*
+
+# But don't ignore .pt files
+!*.pt
+
+# Don't ignore directories (so we can traverse them)
+!*/
+
+# Don't ignore this .gitignore file
+!.gitignore
