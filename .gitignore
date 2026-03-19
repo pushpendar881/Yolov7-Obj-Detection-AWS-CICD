@@ -160,3 +160,6 @@ cython_debug/
 #.idea/
 artifacts/*
 #yolov7.pt
+
+# Generated YOLO exports / traced artifacts (keep locally, don't commit)
+yolov7/traced_model.pt

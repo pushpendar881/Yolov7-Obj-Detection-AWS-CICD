@@ -5,7 +5,9 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>iNeuron</title>
+	<title>Industry Safety Detection</title>
+	<!-- Avoid 404 for favicon in local dev -->
+	<link rel="icon" href="data:,">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<style>
@@ -247,8 +249,7 @@
   </div>
   <!-- /.container -->
 
-	<img class="logo"
-		src="https://apparel.ineuronvision.com/static/logo.png" />
+	<!-- Removed external logo URL to avoid ERR_NAME_NOT_RESOLVED in offline/local environments -->
 
 
 	<div id="loading">
@@ -303,6 +304,13 @@
 								imageData + "' alt='' />");
 							// $(".res-part").html("<pre>" + JSON.stringify(res[0], undefined, 2) + "</pre>");
 							$("#loading").hide();
+						},
+						error: function (xhr) {
+							$("#loading").hide();
+							$(".res-part2").html("");
+							let msg = "Prediction failed.";
+							if (xhr && xhr.responseText) msg += " " + xhr.responseText;
+							$(".res-part2").append("<div style='padding:12px;color:#b00020;'>" + msg + "</div>");
 						}
 					});
 				}

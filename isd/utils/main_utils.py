@@ -19,7 +19,14 @@ def read_yaml_file(file_path: str) -> dict:
 
 def decodeImage(imgstring, fileName):
     imgdata = base64.b64decode(imgstring)
-    with open("./data/" + fileName, 'wb') as f:
+    # If fileName is an absolute/relative path, write exactly there.
+    # Otherwise, default to saving under ./data/<fileName> for backward compatibility.
+    target_path = fileName
+    if not os.path.isabs(fileName) and os.path.dirname(fileName) == "":
+        target_path = os.path.join(".", "data", fileName)
+
+    os.makedirs(os.path.dirname(os.path.abspath(target_path)), exist_ok=True)
+    with open(target_path, 'wb') as f:
         f.write(imgdata)
         f.close()
 

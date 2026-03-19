@@ -249,7 +249,14 @@ def attempt_load(weights, map_location=None):
     model = Ensemble()
     for w in weights if isinstance(weights, list) else [weights]:
         attempt_download(w)
-        ckpt = torch.load(w, map_location=map_location)  # load
+        # PyTorch 2.6 changed torch.load default weights_only=True, which breaks YOLOv7 checkpoints
+        # that store full model objects (e.g., models.yolo.Model). We explicitly set weights_only=False
+        # for backward compatibility. Do this only if you trust the checkpoint source.
+        try:
+            ckpt = torch.load(w, map_location=map_location, weights_only=False)  # load
+        except TypeError:
+            # Older PyTorch versions don't support weights_only kwarg
+            ckpt = torch.load(w, map_location=map_location)  # load
         model.append(ckpt['ema' if ckpt.get('ema') else 'model'].float().fuse().eval())  # FP32 model
     
     # Compatibility updates
