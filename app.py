@@ -5,7 +5,7 @@
 # obj = TrainPipeline()
 # obj.run_pipeline()
 # -------------------------------------------------------------
-
+from flask_cors import CORS, cross_origin
 import os
 import sys
 import subprocess
@@ -14,7 +14,7 @@ from isd.pipeline.training_pipeline import TrainPipeline
 from isd.exception import isdException
 from isd.utils.main_utils import decodeImage, encodeImageIntoBase64
 from flask import Flask, request, jsonify, render_template,Response
-from flask_cors import CORS, cross_origin
+
 
 
 
