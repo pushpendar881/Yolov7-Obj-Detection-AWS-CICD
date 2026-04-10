@@ -6,9 +6,8 @@
 # obj.run_pipeline()
 # -------------------------------------------------------------
 
-
-import sys
 import os
+import sys
 import subprocess
 from pathlib import Path
 from isd.pipeline.training_pipeline import TrainPipeline
